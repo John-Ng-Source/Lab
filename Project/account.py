@@ -13,6 +13,15 @@ class Account:
             success = True
             return success
 
+    def withdraw(self, amount):
+        success = False
+        if self.__account_balance <= 0:
+            return success
+        else:
+            self.__account_balance -= amount
+            success = True
+            return success
+
     def get_balance(self):
         return self.__account_balance
 
