@@ -11,7 +11,7 @@ class Account:
         :param amount: Deposit amount
         :return: Success of Method - True or False"""
         success = True
-        if (self.__account_balance <= 0) or (amount <= 0):
+        if amount <= 0:
             success = False
         else:
             self.__account_balance += amount
@@ -22,7 +22,7 @@ class Account:
            :param amount: deposit amount.
            :return: Success of Method - True or False"""
         success = True
-        if self.__account_balance <= 0:
+        if amount <= 0:
             success = False
         elif amount > self.__account_balance:
             success = False

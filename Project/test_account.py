@@ -17,7 +17,7 @@ class Test:
         assert self.a2.get_balance() == 0
 
     def test_deposit(self):
-        assert self.a1.deposit(-2) is False
+        assert self.a1.deposit(-2.0) is False
         assert self.a1.get_balance() == 0
         assert self.a1.deposit(5.0) is True
         assert self.a1.get_balance() == 5.0
@@ -27,7 +27,8 @@ class Test:
     def test_withdraw(self):
         assert self.a2.withdraw(-10) is False
         assert self.a2.get_balance() == 0
-        assert self.a1.withdraw(5) is True
-        assert self.a1.get_balance() == 5.0
-        assert self.a1.withdraw(2.0) is True
-        assert self.a1.get_balance() == 3.0
+        self.a1.deposit(200)
+        assert self.a1.withdraw(50) is True
+        assert self.a1.get_balance() == 150.0
+        assert self.a1.withdraw(10.0) is True
+        assert self.a1.get_balance() == 140.0
