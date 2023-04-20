@@ -10,25 +10,25 @@ class Account:
         """Method to positively increment account balance.
         :param amount: Deposit amount
         :return: Success of Method - True or False"""
-        success = False
-        if self.__account_balance <= 0:
-            return success
+        success = True
+        if (self.__account_balance <= 0) or (amount <= 0):
+            success = False
         else:
             self.__account_balance += amount
-            success = True
-            return success
+        return success
 
     def withdraw(self, amount: float):
-        success = False
         """Method to negatively increment account balance.
            :param amount: deposit amount.
            :return: Success of Method - True or False"""
+        success = True
         if self.__account_balance <= 0:
-            return success
+            success = False
+        elif amount > self.__account_balance:
+            success = False
         else:
             self.__account_balance -= amount
-            success = True
-            return success
+        return success
 
     def get_balance(self) -> float:
         """Method to return account balance.
